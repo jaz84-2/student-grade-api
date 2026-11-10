@@ -29,6 +29,13 @@ jobs:
       - name: Build and test with Maven
         run: mvn --batch-mode clean verify
 
+# Set up JDK 21 for SonarQube
+      - name: Set up JDK 21 for SonarQube
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
       # 4) Run SonarQube Cloud analysis
       - name: SonarQube Cloud scan
         env:
